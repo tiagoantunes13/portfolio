@@ -76,7 +76,7 @@ gem "devise", "~> 4.9"
 
 # Payments
 gem "pay", "~> 11.1"
-gem "stripe", "~> 15.3"
+gem "stripe", "~> 17.2"
 
 # Ruby LLM and AI
 gem "ruby_llm", "~> 1.8"
