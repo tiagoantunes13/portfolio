@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+/* ============================================
+   BRAND COLOR SYSTEM
+   ============================================
+   Primary Brand Color: Indigo
+
+   Usage in Tailwind:
+   - Buttons: bg-indigo-600 hover:bg-indigo-700
+   - Links: text-indigo-600 hover:text-indigo-700
+   - Borders: border-indigo-500
+   - Focus rings: focus:ring-indigo-500
+   - Backgrounds (light): bg-indigo-50 bg-indigo-100
+
+   Secondary Accent: Purple (for gradients)
+   - Gradients: from-indigo-600 to-purple-600
+
+   If you need to change the brand color in the future,
+   use find-and-replace:
+   - Find: indigo-
+   - Replace: [new-color]-
+
+   ============================================ */
+
+
+   
+/* ==========================================================================
+   TOAST NOTIFICATION ANIMATIONS
+   ========================================================================== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.3s ease-out;
+}
+
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@supports (height: 100dvh) {
+  .h-screen {
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+}
+
+/* iOS safe area support */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Touch-friendly tap targets for mobile */
+@media (max-width: 640px) {
+  button,
+  input[type="submit"],
+  a {
+    min-height: 44px; /* iOS recommended tap target size */
+  }
+}
+
+
+
+/* ==========================================================================
+   DROPDOWN MENUS
+   ========================================================================== */
+#tools-dropdown:checked ~ .dropdown-menu,
+#user-dropdown:checked ~ .dropdown-menu {
+  display: block;
+}
+
+#tools-dropdown:checked ~ label .dropdown-arrow,
+#user-dropdown:checked ~ label .dropdown-arrow {
+  transform: rotate(180deg);
+}
+

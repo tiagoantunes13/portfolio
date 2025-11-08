@@ -1,0 +1,12 @@
+<footer class="flex justify-center">
+  <div class="flex max-w-[960px] flex-1 flex-col">
+    <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+      <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+        <%= link_to 'Privacy Policy', privacy_path, class: "text-[#90adcb] hover:text-white text-base font-normal leading-normal min-w-40 transition-colors" %>
+        <%= link_to 'Terms of Service', terms_path, class: "text-[#90adcb] hover:text-white text-base font-normal leading-normal min-w-40 transition-colors" %>
+        <%= link_to 'Contact Us', contact_path, class: "text-[#90adcb] hover:text-white text-base font-normal leading-normal min-w-40 transition-colors" %>
+      </div>
+      <p class="text-[#90adcb] text-base font-normal leading-normal">© <%= Date.today.year %> ApplyTrack. All rights reserved.</p>
+    </footer>
+  </div>
+</footer>

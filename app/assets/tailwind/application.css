@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply px-8 py-4 bg-indigo-600 text-white font-semibold text-lg rounded-xl
+           hover:bg-indigo-700 transition-all duration-300 hover:scale-105
+           shadow-lg shadow-indigo-500/25;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 bg-gray-700 text-white font-semibold text-lg rounded-xl
+           hover:bg-gray-600 transition-all duration-300 border border-gray-600;
+  }
+
+  .btn-sm {
+    @apply px-6 py-2.5 bg-indigo-600 text-white font-semibold rounded-xl
+           hover:bg-indigo-700 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-2.5 text-gray-700 font-semibold hover:text-indigo-600 transition-colors;
+  }
+
+  /* Form Inputs */
+  .input-dark {
+    @apply w-full px-4 py-3 rounded-xl text-white bg-gray-800 border border-gray-700
+           focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20
+           transition-all duration-300 placeholder-gray-500;
+  }
+
+  .textarea-dark {
+    @apply w-full px-4 py-3 rounded-xl text-white bg-gray-800 border border-gray-700
+           focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20
+           transition-all duration-300 placeholder-gray-500 resize-none;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl shadow-lg p-6 border border-gray-200;
+  }
+
+  .card-dark {
+    @apply bg-gray-800 rounded-xl border border-gray-700 p-6;
+  }
+
+  /* Badges */
+  .badge-pro {
+    @apply ml-1 text-xs bg-gradient-to-r from-indigo-600 to-purple-600
+           text-white px-1.5 py-0.5 rounded font-semibold;
+  }
+
+  .badge-success {
+    @apply px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium;
+  }
+}

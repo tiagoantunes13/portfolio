@@ -1,0 +1,155 @@
+<div class="px-4 sm:px-8 flex flex-1 justify-center py-12 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen">
+  <div class="layout-content-container flex flex-col max-w-6xl flex-1">
+    <!-- Header Section -->
+    <div class="flex flex-col gap-6 p-4 text-center mb-12">
+      <div class="inline-flex items-center gap-2 bg-gray-800 border border-gray-700 rounded-full px-4 py-2 mx-auto">
+        <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-gray-300 text-sm font-medium">Free forever for individual job seekers</span>
+      </div>
+      <h1 class="text-white text-5xl font-bold leading-tight bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent">
+        Simple, Transparent Pricing
+      </h1>
+      <p class="text-gray-300 text-xl max-w-2xl mx-auto">
+        Start free and explore <%= UiConfig::BRAND[:name] %>. Upgrade to Pro when you're ready for unlimited access to all AI-powered features.
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 mb-16">
+      <% PricingConfig::PLANS.each do |plan_id, plan| %>
+        <% is_free = plan_id == :free %>
+        <% is_annual = plan_id == :annual %>
+        <% has_badge = plan[:badge].present? %>
+
+        <%# Determine card styling based on plan type %>
+        <% if is_annual %>
+          <% card_border = "border-2 border-yellow-400 hover:border-yellow-300" %>
+          <% cta_classes = "bg-yellow-400 text-yellow-900 font-bold hover:bg-yellow-300 hover:scale-105 shadow-lg shadow-yellow-400/25" %>
+        <% elsif is_free %>
+          <% card_border = "border border-gray-700 hover:border-gray-600" %>
+          <% cta_classes = "bg-gray-700 text-white font-semibold hover:bg-gray-600 border border-gray-600" %>
+        <% else %>
+          <% card_border = "border border-indigo-500 hover:border-indigo-400" %>
+          <% cta_classes = "bg-indigo-600 text-white font-semibold hover:bg-indigo-700 hover:scale-105 shadow-lg shadow-indigo-500/25" %>
+        <% end %>
+
+        <div class="flex flex-col gap-6 rounded-2xl <%= card_border %> bg-gray-800 p-8 relative transition-all duration-300">
+          <%# Badge for special plans %>
+          <% if has_badge %>
+            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+              <span class="bg-yellow-400 text-yellow-900 text-sm font-bold px-4 py-1 rounded-full">
+                <%= plan[:savings][:display] %> 🎉
+              </span>
+            </div>
+          <% end %>
+
+          <%# Plan Name and Price %>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <h2 class="text-white text-2xl font-bold"><%= plan[:display_name] %></h2>
+            </div>
+
+            <% if is_annual %>
+              <div class="flex flex-col gap-1">
+                <div class="flex items-baseline gap-2">
+                  <span class="text-white text-5xl font-black"><%= plan[:price][:display] %></span>
+                  <span class="text-gray-400 text-lg font-semibold">/<%= plan[:price][:interval] %></span>
+                </div>
+                <p class="text-yellow-400 text-sm font-semibold">Only <%= plan[:price][:monthly_equivalent] %>/month</p>
+              </div>
+            <% else %>
+              <div class="flex items-baseline gap-2">
+                <span class="text-white text-5xl font-black"><%= plan[:price][:display] %></span>
+                <span class="text-gray-400 text-lg font-semibold">/<%= plan[:price][:interval] %></span>
+              </div>
+            <% end %>
+
+            <p class="text-gray-400 text-sm"><%= plan[:description] %></p>
+          </div>
+
+          <%# CTA Button %>
+          <%= link_to new_user_registration_path, class: "w-full py-4 #{cta_classes} text-lg rounded-xl transition-all duration-300 text-center" do %>
+            <%= plan[:cta] %>
+          <% end %>
+
+          <% unless is_free %>
+            <p class="text-gray-400 text-sm text-center">Start free, upgrade anytime from your account</p>
+          <% end %>
+
+          <%# Feature List %>
+          <div class="flex flex-col gap-4 mt-4">
+            <% plan[:features].each do |feature_key, feature_data| %>
+              <div class="text-gray-300 text-base flex items-center gap-3">
+                <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span><%= feature_data[:display] %></span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Trust Signals -->
+    <div class="flex flex-wrap justify-center gap-8 px-4 py-8 mb-12 border-t border-gray-700 pt-12">
+      <div class="flex items-center gap-3 text-gray-400">
+        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-base">No credit card required</span>
+      </div>
+      <div class="flex items-center gap-3 text-gray-400">
+        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-base">Cancel anytime</span>
+      </div>
+      <div class="flex items-center gap-3 text-gray-400">
+        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-base">Secure payment</span>
+      </div>
+      <div class="flex items-center gap-3 text-gray-400">
+        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-base">Upgrade anytime</span>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="px-4 py-12">
+      <h2 class="text-white text-3xl font-bold text-center mb-12 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent">Frequently Asked Questions</h2>
+
+      <div class="max-w-3xl mx-auto space-y-6">
+        <!-- FAQ 1 -->
+        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300">
+          <h3 class="text-white font-semibold text-lg mb-3">Do I need a credit card to start?</h3>
+          <p class="text-gray-300 text-base">No! You can sign up for free and start using <%= UiConfig::BRAND[:name] %> immediately without providing any payment information.</p>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300">
+          <h3 class="text-white font-semibold text-lg mb-3">Can I upgrade or downgrade at any time?</h3>
+          <p class="text-gray-300 text-base">Yes! You can upgrade to Pro whenever you want from your account page. You can also cancel your subscription at any time.</p>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300">
+          <h3 class="text-white font-semibold text-lg mb-3">What happens to my data if I cancel?</h3>
+          <p class="text-gray-300 text-base">Your data stays safe. If you cancel Pro, you'll be moved to the Free plan and keep all your tracked applications. You can still access your account with Free plan limits.</p>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300">
+          <h3 class="text-white font-semibold text-lg mb-3">What payment methods do you accept?</h3>
+          <p class="text-gray-300 text-base">We accept all major credit cards (Visa, Mastercard, American Express) through our secure payment provider Stripe.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

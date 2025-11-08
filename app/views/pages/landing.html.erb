@@ -1,0 +1,410 @@
+<% content_for :top_banner do %>
+  <!-- AI Chat Announcement Banner -->
+  <div class="bg-gradient-to-r from-indigo-600 to-purple-600 border-b border-indigo-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex items-center justify-center gap-3">
+        <span class="text-2xl">🎉</span>
+        <p class="text-white text-sm sm:text-base font-medium">
+          <span class="font-bold">NEW:</span> AI Chat Assistant is here!
+        </p>
+        <a href="#ai-chat-section" class="hidden sm:inline-flex px-4 py-2 bg-white text-indigo-600 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-all whitespace-nowrap">Learn more →</a>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="px-10 flex flex-1 justify-center py-5 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen">
+  <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+
+
+    <!-- Hero Section -->
+    <div class="flex flex-col gap-12 px-4 py-24 items-center justify-center text-center">
+      <div class="flex flex-col gap-8 max-w-4xl">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-gray-800 border border-gray-700 rounded-full px-4 py-2 mx-auto">
+          <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-gray-300 text-sm font-medium">Free forever for individual job seekers</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="text-white text-7xl font-bold leading-tight tracking-tight bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent">
+          ApplyTrack
+        </h1>
+        
+        <!-- Subheadline -->
+        <p class="text-gray-300 text-2xl font-normal max-w-3xl mx-auto leading-relaxed">
+          The AI-powered job hunt command center. Organize applications, generate cover letters, and land your dream role <span class="text-indigo-400 font-semibold">more efficiently</span>.
+        </p>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 items-center mt-4">
+        <%= link_to 'Get Started Free', new_user_registration_path, class: "btn-primary" %>
+        <a href="#features" class="btn-secondary">
+          See How It Works
+        </a>
+      </div>
+
+      <!-- Social Proof / Benefits -->
+      <div class="flex flex-col gap-4 mt-8">
+        <p class="text-gray-500 text-sm">Start your organized job search today</p>
+        <div class="flex items-center justify-center gap-6 text-gray-400 text-sm">
+          <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+            <span>Track unlimited applications</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+            <span>AI-powered cover letters</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+            <span>No credit card required</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Chat Feature Section -->
+    <div id="ai-chat-section" class="flex flex-col gap-10 px-4 py-16 bg-gray-800 rounded-2xl border border-gray-700 mx-4">
+      <div class="text-center flex flex-col gap-4">
+        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full px-4 py-2 mx-auto">
+          <span class="text-xl">✨</span>
+          <span class="text-white text-sm font-bold uppercase tracking-wide">New Feature</span>
+        </div>
+        <h2 class="text-white text-4xl font-bold">Meet Your AI Job Assistant</h2>
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+          Just ask. Our AI Chat understands your applications, your preferences, and your goals.
+        </p>
+      </div>
+
+      <!-- Example Conversation -->
+      <div class="max-w-3xl mx-auto w-full">
+        <p class="text-gray-400 text-sm font-semibold uppercase tracking-wide text-center mb-6">Here's how it works:</p>
+
+        <div class="flex flex-col gap-4">
+          <!-- User Message -->
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-5">
+            <p class="text-gray-400 text-sm font-semibold mb-2">👤 You:</p>
+            <p class="text-gray-200">"I found this job on LinkedIn: [URL]. Can you save this job for me?"</p>
+          </div>
+
+          <!-- AI Message -->
+          <div class="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border border-indigo-500/50 rounded-xl p-5">
+            <p class="text-indigo-300 text-sm font-semibold mb-2">🤖 AI Assistant:</p>
+            <p class="text-gray-200">"Job saved! Would you like me to create an application with a tailored cover letter?"</p>
+          </div>
+
+          <!-- User Message -->
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-5">
+            <p class="text-gray-400 text-sm font-semibold mb-2">👤 You:</p>
+            <p class="text-gray-200">"Yes, please create the application!"</p>
+          </div>
+
+          <!-- Success Message -->
+          <div class="bg-green-900/20 border border-green-500/50 rounded-xl p-5 text-center">
+            <p class="text-green-300 font-semibold">✨ Done! Your application is created with a personalized cover letter, ready to submit.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center">
+        <%= link_to 'Try AI Chat Free →', new_user_registration_path, class: "inline-flex btn-primary" %>
+        <p class="text-gray-400 text-sm mt-3">Everyone can try AI Chat free • Upgrade for unlimited access</p>
+      </div>
+    </div>
+
+    <!-- Problem Statement Section -->
+    <div class="flex flex-col gap-10 px-4 py-16">
+      <div class="text-center flex flex-col gap-4">
+        <h2 class="text-white text-4xl font-bold">Job hunting shouldn't feel like chaos</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <!-- Pain Point 1 -->
+        <div class="card-dark flex flex-col gap-3 p-8 shadow-lg text-center">
+          <div class="flex justify-center mb-2">
+            <svg class="w-12 h-12 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 22V12h6v10" />
+            </svg>
+          </div>
+          <h3 class="text-white font-bold text-xl">Lost Track</h3>
+          <p class="text-gray-400 text-base">"Where did I apply? Did they respond? When should I follow up?"</p>
+        </div>
+
+        <!-- Pain Point 2 -->
+        <div class="card-dark flex flex-col gap-3 p-8 shadow-lg text-center">
+          <div class="flex justify-center mb-2">
+            <svg class="w-12 h-12 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-white font-bold text-xl">Time Drain</h3>
+          <p class="text-gray-400 text-base">"Spent hours writing cover letters instead of applying to more jobs."</p>
+        </div>
+
+        <!-- Pain Point 3 -->
+        <div class="card-dark flex flex-col gap-3 p-8 shadow-lg text-center">
+          <div class="flex justify-center mb-2">
+            <svg class="w-12 h-12 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-white font-bold text-xl">Repetitive Work</h3>
+          <p class="text-gray-400 text-base">"Writing the same cover letter over and over for similar positions."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features Section -->
+    <div id="features" class="flex flex-col gap-16 px-4 py-16 rounded-2xl">
+      <div class="text-center flex flex-col gap-4">
+        <h2 class="text-white text-4xl font-bold">Your AI-Powered Job Hunt Command Center</h2>
+        <p class="text-gray-300 text-lg max-w-[700px] mx-auto">
+          Everything you need to organize, optimize, and accelerate your job search.
+        </p>
+      </div>
+
+      <!-- Feature 1: Smart Job Tracking -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="flex flex-col gap-4">
+          <div class="flex mb-2">
+            <svg class="w-12 h-12 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="text-white text-2xl font-bold">Smart Job Tracking</h3>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Keep all your applications organized in one place. Track every stage from "Applied" to "Offer".
+            Never miss a follow-up or interview again with our intuitive dashboard.
+          </p>
+          <ul class="text-gray-400 space-y-2 text-base">
+            <li>✓ Visual pipeline of all your applications</li>
+            <li>✓ Track status, dates, and next steps</li>
+            <li>✓ Stay organized across dozens of applications</li>
+          </ul>
+        </div>
+        <div class="rounded-lg overflow-hidden border border-gray-700 shadow-xl">
+          <img src="/job_tracking.png" alt="Job Tracking Dashboard" class="w-full h-auto">
+        </div>
+      </div>
+
+      <!-- Feature 2: AI Cover Letters -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="rounded-lg overflow-hidden border border-gray-700 shadow-xl order-2 lg:order-1">
+          <img src="/cover_letter.png" alt="AI Cover Letter Generation" class="w-full h-auto">
+        </div>
+        <div class="flex flex-col gap-4 order-1 lg:order-2">
+          <div class="flex mb-2">
+            <svg class="w-12 h-12 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-white text-2xl font-bold">AI-Generated Cover Letters</h3>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Create tailored cover letters in seconds. Our AI analyzes the job description and your experience
+            to generate professional, personalized cover letters that stand out.
+          </p>
+          <ul class="text-gray-400 space-y-2 text-base">
+            <li>✓ Personalized to each job description</li>
+            <li>✓ Professional quality in seconds</li>
+            <li>✓ Edit and refine as needed</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 3: CV Analysis -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="flex flex-col gap-4">
+          <div class="flex mb-2">
+            <svg class="w-12 h-12 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-white text-2xl font-bold">Intelligent CV Analysis</h3>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Upload your CV and let AI extract key details automatically. Auto-fill application information
+            and keep your experience organized for quick reference.
+          </p>
+          <ul class="text-gray-400 space-y-2 text-base">
+            <li>✓ AI extracts skills, experience, and education</li>
+            <li>✓ Auto-fill job application fields</li>
+            <li>✓ Keep your profile always up-to-date</li>
+          </ul>
+        </div>
+        <div class="rounded-lg overflow-hidden border border-gray-700 shadow-xl">
+          <img src="/import_cv.png" alt="CV Analysis and Import" class="w-full h-auto">
+        </div>
+      </div>
+
+      <!-- Feature 4: Job Search -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="rounded-lg overflow-hidden border border-gray-700 shadow-xl order-2 lg:order-1">
+          <img src="/job_search.png" alt="Job Search Interface" class="w-full h-auto">
+        </div>
+        <div class="flex flex-col gap-4 order-1 lg:order-2">
+          <div class="flex mb-2">
+            <svg class="w-12 h-12 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <h3 class="text-white text-2xl font-bold">Powered Job Search</h3>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Find relevant positions fast with integrated job search. Check if jobs match your location
+            preferences and save promising opportunities directly to your tracker.
+          </p>
+          <ul class="text-gray-400 space-y-2 text-base">
+            <li>✓ Search across multiple job boards</li>
+            <li>✓ Location preference checking</li>
+            <li>✓ One-click save to your tracker</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Comparison -->
+    <div class="px-4 sm:px-8 flex flex-1 justify-center py-12 mt-10">
+      <div class="layout-content-container flex flex-col max-w-6xl flex-1">
+        <!-- Header Section -->
+        <div class="flex flex-col gap-6 p-4 text-center mb-12">
+          <h1 class="text-white text-5xl font-bold leading-tight bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent">
+            Start Free, Upgrade When Ready
+          </h1>
+          <p class="text-gray-300 text-xl max-w-2xl mx-auto">
+            Try all features for free. Upgrade to Pro when you're ready for unlimited access to AI-powered tools.
+          </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 mb-16">
+          <% PricingConfig::PLANS.each do |plan_id, plan| %>
+            <% is_free = plan_id == :free %>
+            <% is_annual = plan_id == :annual %>
+            <% has_badge = plan[:badge].present? %>
+
+            <%# Determine card styling based on plan type %>
+            <% if is_annual %>
+              <% card_border = "border-2 border-yellow-400 hover:border-yellow-300" %>
+              <% cta_classes = "bg-yellow-400 text-yellow-900 font-bold hover:bg-yellow-300 hover:scale-105 shadow-lg shadow-yellow-400/25" %>
+            <% elsif is_free %>
+              <% card_border = "border border-gray-700 hover:border-gray-600" %>
+              <% cta_classes = "bg-gray-700 text-white font-semibold hover:bg-gray-600 border border-gray-600" %>
+            <% else %>
+              <% card_border = "border border-indigo-500 hover:border-indigo-400" %>
+              <% cta_classes = "bg-indigo-600 text-white font-semibold hover:bg-indigo-700 hover:scale-105 shadow-lg shadow-indigo-500/25" %>
+            <% end %>
+
+            <div class="flex flex-col gap-6 rounded-2xl <%= card_border %> bg-gray-800 p-8 relative transition-all duration-300 hover:scale-105">
+              <%# Badge for special plans %>
+              <% if has_badge %>
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span class="bg-yellow-400 text-yellow-900 text-sm font-bold px-4 py-1 rounded-full">
+                    <%= plan[:savings][:display] %> 🎉
+                  </span>
+                </div>
+              <% end %>
+
+              <%# Plan Name and Price %>
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-white text-2xl font-bold"><%= plan[:display_name] %></h2>
+                </div>
+
+                <% if is_annual %>
+                  <div class="flex flex-col gap-1">
+                    <div class="flex items-baseline gap-2">
+                      <span class="text-white text-5xl font-black"><%= plan[:price][:display] %></span>
+                      <span class="text-gray-400 text-lg font-semibold">/<%= plan[:price][:interval] %></span>
+                    </div>
+                    <p class="text-yellow-400 text-sm font-semibold">Only <%= plan[:price][:monthly_equivalent] %>/month</p>
+                  </div>
+                <% else %>
+                  <div class="flex items-baseline gap-2">
+                    <span class="text-white text-5xl font-black"><%= plan[:price][:display] %></span>
+                    <span class="text-gray-400 text-lg font-semibold">/<%= plan[:price][:interval] %></span>
+                  </div>
+                <% end %>
+
+                <p class="text-gray-400 text-sm"><%= plan[:description] %></p>
+              </div>
+
+              <%# CTA Button %>
+              <%= link_to plan[:cta], new_user_registration_path, class: "w-full py-4 #{cta_classes} text-lg rounded-xl transition-all duration-300 text-center" %>
+
+              <% unless is_free %>
+                <p class="text-gray-400 text-sm text-center">Start free, upgrade anytime from your account</p>
+              <% end %>
+
+              <%# Feature List %>
+              <div class="flex flex-col gap-4 mt-4">
+                <% plan[:features].each do |feature_key, feature_data| %>
+                  <div class="text-gray-300 text-base flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span><%= feature_data[:display] %></span>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="text-center mt-8">
+          <%= link_to 'View full pricing details →', pricing_path, class: "inline-flex items-center text-indigo-400 font-medium hover:text-indigo-300 transition-colors text-lg" %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Final CTA Section -->
+    <div class="px-4 sm:px-8 flex flex-1 justify-center py-20 border-t border-gray-700">
+      <div class="layout-content-container flex flex-col max-w-4xl flex-1">
+        <div class="flex flex-col gap-8 text-center">
+          <!-- Headline -->
+          <h2 class="text-white text-5xl font-bold leading-tight bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent">
+            Ready to Transform Your Job Hunt?
+          </h2>
+          
+          <!-- Subheadline -->
+          <p class="text-gray-300 text-xl max-w-2xl mx-auto leading-relaxed">
+            Join job seekers who are landing roles faster with AI-powered tools and organized tracking.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4">
+            <%= link_to 'Start Free Trial', new_user_registration_path, class: "btn-primary" %>
+            <a href="#features" class="btn-secondary">
+              See Features
+            </a>
+          </div>
+
+          <!-- Trust Signals -->
+          <div class="flex flex-col gap-4 mt-8">
+            <p class="text-gray-500 text-sm">Get started in minutes</p>
+            <div class="flex items-center justify-center gap-6 text-gray-400 text-sm">
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                <span>No credit card required</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                <span>Free forever plan</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                <span>Upgrade anytime</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

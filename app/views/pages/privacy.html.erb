@@ -1,0 +1,135 @@
+<div class="px-10 flex flex-1 justify-center py-5 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen">
+  <div class="layout-content-container flex flex-col max-w-[900px] flex-1">
+
+    <!-- Header -->
+    <div class="flex flex-col gap-4 px-4 py-10 text-center">
+      <h1 class="text-white text-4xl font-bold leading-tight">Privacy Policy</h1>
+      <p class="text-gray-400 text-sm">Last updated: <%= Date.today.strftime('%B %d, %Y') %></p>
+    </div>
+
+    <!-- Content -->
+    <div class="flex flex-col gap-8 px-4 py-8">
+
+      <!-- Section 1 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">Introduction</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          Welcome to ApplyTrack. We respect your privacy and are committed to protecting your personal data.
+          This privacy policy will inform you about how we look after your personal data when you visit our
+          website and use our services.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">Information We Collect</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          We collect and process the following information:
+        </p>
+        <ul class="text-gray-300 text-base leading-relaxed list-disc list-inside space-y-2 ml-4">
+          <li><strong class="text-white">Account Information:</strong> Email address, name, and password when you create an account</li>
+          <li><strong class="text-white">Job Application Data:</strong> Job titles, companies, application dates, and notes you track</li>
+          <li><strong class="text-white">CV/Resume Data:</strong> Information you upload for AI processing</li>
+          <li><strong class="text-white">Usage Data:</strong> How you interact with our service to improve features</li>
+        </ul>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">How We Use Your Information</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          We use your information to:
+        </p>
+        <ul class="text-gray-300 text-base leading-relaxed list-disc list-inside space-y-2 ml-4">
+          <li>Provide and maintain our job tracking service</li>
+          <li>Generate AI-powered cover letters and analyze your CV</li>
+          <li>Process your subscription payments</li>
+          <li>Send you important updates about our service</li>
+          <li>Improve and optimize our platform</li>
+        </ul>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">Data Security</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          We implement appropriate security measures to protect your personal information. Your data is
+          encrypted in transit and at rest. We use secure payment processing through Stripe for all
+          subscription payments.
+        </p>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">Third-Party Services</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          We use the following third-party services:
+        </p>
+        <ul class="text-gray-300 text-base leading-relaxed list-disc list-inside space-y-2 ml-4">
+          <li><strong class="text-white">Stripe:</strong> For payment processing</li>
+          <li><strong class="text-white">AI Services:</strong> For cover letter generation and CV analysis</li>
+          <li><strong class="text-white">Job Search API:</strong> For finding relevant job listings</li>
+        </ul>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">Your Rights</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          You have the right to:
+        </p>
+        <ul class="text-gray-300 text-base leading-relaxed list-disc list-inside space-y-2 ml-4">
+          <li>Access your personal data</li>
+          <li>Correct inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Export your data</li>
+          <li>Cancel your subscription at any time</li>
+        </ul>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">Data Retention</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          We retain your personal data only for as long as necessary to provide our services and comply
+          with legal obligations. If you cancel your account, we will delete your data within 30 days
+          unless required to retain it by law.
+        </p>
+      </div>
+
+      <!-- Section 8 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">Cookies</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          We use essential cookies to maintain your session and remember your preferences. We do not
+          use tracking or advertising cookies.
+        </p>
+      </div>
+
+      <!-- Section 9 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">Changes to This Policy</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          We may update this privacy policy from time to time. We will notify you of any significant
+          changes by email or through a notice on our website.
+        </p>
+      </div>
+
+      <!-- Section 10 -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-white text-2xl font-bold">Contact Us</h2>
+        <p class="text-gray-300 text-base leading-relaxed">
+          If you have any questions about this privacy policy or how we handle your data, please
+          <%= link_to 'contact us', contact_path, class: 'text-indigo-400 hover:text-indigo-300 underline' %>.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Back Link -->
+    <div class="px-4 py-8 text-center">
+      <%= link_to '← Back to Home', root_path, class: 'text-indigo-400 hover:text-indigo-300 text-sm font-medium' %>
+    </div>
+
+  </div>
+</div>

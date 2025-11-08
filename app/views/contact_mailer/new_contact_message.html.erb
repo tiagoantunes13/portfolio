@@ -1,0 +1,57 @@
+<h2>🔔 New Contact Form Message</h2>
+
+<p>You've received a new message through your website contact form.</p>
+
+<div class="card">
+  <h3 class="mb-2">Message Details</h3>
+  
+  <table style="width: 100%; border-collapse: collapse;">
+    <tr style="border-bottom: 1px solid #e5e7eb;">
+      <td style="padding: 8px 12px 8px 0; font-weight: 600; color: #374151; width: 80px;">
+        From:
+      </td>
+      <td style="padding: 8px 0;">
+        <strong><%= @contact_message.name %></strong>
+        <br>
+        <a href="mailto:<%= @contact_message.email %>"><%= @contact_message.email %></a>
+      </td>
+    </tr>
+    
+    <tr style="border-bottom: 1px solid #e5e7eb;">
+      <td style="padding: 8px 12px 8px 0; font-weight: 600; color: #374151;">
+        Subject:
+      </td>
+      <td style="padding: 8px 0;">
+        <strong><%= @contact_message.subject %></strong>
+      </td>
+    </tr>
+    
+    <tr style="border-bottom: 1px solid #e5e7eb;">
+      <td style="padding: 8px 12px 8px 0; font-weight: 600; color: #374151;">
+        Received:
+      </td>
+      <td style="padding: 8px 0;">
+        <%= @contact_message.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3 class="mb-2">Message</h3>
+  <div style="background-color: #ffffff; padding: 16px; border-radius: 6px; border: 1px solid #d1d5db;">
+    <%= simple_format(@contact_message.message) %>
+  </div>
+</div>
+
+<div style="margin: 32px 0; text-align: center;">
+  <a href="mailto:<%= @contact_message.email %>?subject=Re: <%= @contact_message.subject %>" class="btn">
+    📧 Reply to <%= @contact_message.name %>
+  </a>
+</div>
+
+<div style="border-top: 1px solid #e5e7eb; padding-top: 20px; margin-top: 32px;">
+  <p class="text-muted" style="font-size: 14px; margin-bottom: 0;">
+    💡 <strong>Tip:</strong> This email is configured with a reply-to address so you can respond directly.
+  </p>
+</div>

@@ -1,0 +1,170 @@
+<div class="px-4 sm:px-8 lg:px-16 flex flex-1 justify-center py-12 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen">
+  <div class="layout-content-container flex flex-col max-w-4xl flex-1">
+    <!-- Header Section -->
+    <div class="flex flex-col gap-6 p-4 text-center mb-12">
+      <div class="inline-flex items-center gap-2 bg-gray-800 border border-gray-700 rounded-full px-4 py-2 mx-auto">
+        <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-gray-300 text-sm font-medium">We're here to help</span>
+      </div>
+      <h1 class="text-white text-5xl font-bold leading-tight bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent">
+        Get in Touch
+      </h1>
+      <p class="text-gray-300 text-xl max-w-2xl mx-auto">
+        Have questions or feedback? We'd love to hear from you. Reach out and we'll get back to you within 24 hours.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Contact Form -->
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4">
+          <h2 class="text-white text-2xl font-bold">Send us a message</h2>
+          <p class="text-gray-400 text-base">Fill out the form below and we'll get back to you as soon as possible.</p>
+        </div>
+        
+        <div id="contact_form">
+          <%= form_with model: @contact_message, class: "flex flex-col gap-6" do |f| %>
+            <% if @contact_message.errors.any? %>
+              <div class="flex p-6 bg-red-900/20 border border-red-500/30 rounded-xl">
+                <div class="flex flex-col gap-2">
+                  <h4 class="text-red-400 font-semibold text-lg">Please fix the following errors:</h4>
+                  <ul class="text-red-300 text-base space-y-1">
+                    <% @contact_message.errors.full_messages.each do |message| %>
+                      <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                        </svg>
+                        <%= message %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-3">
+                <%= f.label :name, class: "text-white text-base font-semibold" %>
+                <%= f.text_field :name, class: "input-dark", placeholder: "Your full name" %>
+              </div>
+
+              <div class="flex flex-col gap-3">
+                <%= f.label :email, class: "text-white text-base font-semibold" %>
+                <%= f.email_field :email, class: "input-dark", placeholder: "your.email@example.com" %>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <%= f.label :subject, class: "text-white text-base font-semibold" %>
+              <%= f.text_field :subject, class: "input-dark", placeholder: "What's this regarding?" %>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <%= f.label :message, class: "text-white text-base font-semibold" %>
+              <%= f.text_area :message, rows: 6, class: "textarea-dark", placeholder: "Tell us how we can help you..." %>
+            </div>
+
+            <div class="flex justify-start">
+              <%= f.submit "Send Message", class: "btn-primary cursor-pointer" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4">
+          <h2 class="text-white text-2xl font-bold">Common Questions</h2>
+          <p class="text-gray-400 text-base">Quick answers to frequently asked questions.</p>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <details class="group bg-gray-800 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300" open="">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6">
+              <p class="text-white text-lg font-semibold leading-normal">How do I track my job applications?</p>
+              <div class="text-gray-400 group-open:rotate-180 transition-transform duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-300 text-base leading-relaxed">
+                Easily track your job applications by adding them to your dashboard. You can update the status as you progress through interviews and follow-ups, set reminders, and keep all your application details organized in one place.
+              </p>
+            </div>
+          </details>
+
+          <details class="group bg-gray-800 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6">
+              <p class="text-white text-lg font-semibold leading-normal">What's included in the Pro plan?</p>
+              <div class="text-gray-400 group-open:rotate-180 transition-transform duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-300 text-base leading-relaxed">
+                The Pro plan includes unlimited AI cover letters, location checks, CV imports, job searches, and access to our AI chat assistant. You also get priority support and can track unlimited job applications.
+              </p>
+            </div>
+          </details>
+
+          <details class="group bg-gray-800 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6">
+              <p class="text-white text-lg font-semibold leading-normal">Can I integrate with job platforms?</p>
+              <div class="text-gray-400 group-open:rotate-180 transition-transform duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-300 text-base leading-relaxed">
+                Currently, we support manual job entry and our integrated job search. We're working on direct integrations with popular job platforms and will announce them as they become available.
+              </p>
+            </div>
+          </details>
+
+          <details class="group bg-gray-800 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6">
+              <p class="text-white text-lg font-semibold leading-normal">Is my data secure?</p>
+              <div class="text-gray-400 group-open:rotate-180 transition-transform duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-300 text-base leading-relaxed">
+                Yes! We take data security seriously. All your information is encrypted and stored securely. We never share your personal data with third parties without your explicit permission.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Additional Contact Info -->
+        <%# <div class="bg-gray-800 rounded-xl border border-gray-700 p-6">
+          <h3 class="text-white text-lg font-semibold mb-4">Other ways to reach us</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 text-gray-300">
+              <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span>support@applytrack.com</span>
+            </div>
+            <div class="flex items-center gap-3 text-gray-300">
+              <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Typically reply within 24 hours</span>
+            </div>
+          </div>
+        </div> %>
+      </div>
+    </div>
+  </div>
+</div>
