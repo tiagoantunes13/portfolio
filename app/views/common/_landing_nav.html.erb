@@ -1,6 +1,6 @@
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-4 sm:px-8 md:px-20 lg:px-40 py-6 md:py-5">
-  <%= link_to root_path, class: "flex items-center gap-4 text-primary hover:text-accent-secondary transition-colors" do %>
-    <div class="size-6">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-4 sm:px-8 md:px-20 lg:px-40 py-4 sm:py-6 md:py-5">
+  <%= link_to root_path, class: "flex items-center justify-center gap-4 text-primary hover:text-accent-secondary transition-colors" do %>
+    <div class="size-6 flex items-center justify-center">
       <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 3H20C21.1046 3 22 3.89543 22 5V19C22 20.1046 21.1046 21 20 21H4C2.89543 21 2 20.1046 2 19V5C2 3.89543 2.89543 3 4 3ZM5 6V8H7V6H5ZM5 9V11H7V9H5ZM5 12V14H7V12H5ZM8 17H16V18H8V17Z"></path>
       </svg>
@@ -9,9 +9,9 @@
   <% end %>
 
   <div class="flex flex-1 justify-end items-center gap-4 md:gap-8">
-    <div class="flex items-center gap-6">
+    <div class="flex items-center justify-center gap-4 sm:gap-6">
       <% UiConfig::LANDING_NAV.each do |item| %>
-        <%= link_to "[ #{item[:name]} ]", send(item[:path]), class: "text-white hover:text-accent-secondary text-sm font-medium leading-normal transition-colors" %>
+        <%= link_to "[ #{item[:name]} ]", send(item[:path]), class: "text-white hover:text-accent-secondary text-sm font-medium leading-normal transition-colors flex items-center" %>
       <% end %>
     </div>
   </div>

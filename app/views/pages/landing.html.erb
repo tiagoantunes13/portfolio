@@ -23,7 +23,7 @@
 
   <!-- Projects Section -->
   <div>
-    <h2 class="text-primary text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 sm:px-8 md:px-20 lg:px-40 pb-3 pt-5">ls -l projects/</h2>
+    <h2 class="text-primary text-lg sm:text-xl md:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 sm:px-8 md:px-20 lg:px-40 pb-3 pt-5">ls -l projects/</h2>
   </div>
 
   <% if @projects.any? %>
@@ -42,9 +42,9 @@
           <div>
             <p class="text-white text-base font-medium leading-normal"><%= project.title.downcase.gsub(' ', '_') %>.rb</p>
             <% if project.technologies.present? %>
-              <p class="text-primary/70 text-sm font-normal leading-normal">Dependencies: <%= project.technologies %></p>
+              <p class="text-primary/70 text-xs sm:text-sm font-normal leading-normal">Dependencies: <%= project.technologies %></p>
             <% end %>
-            <p class="text-white/60 text-sm font-normal leading-normal"><%= project.description %></p>
+            <p class="text-white/60 text-sm font-normal leading-relaxed"><%= project.description %></p>
             <div class="flex items-center gap-3 mt-2">
               <% if project.project_url.present? %>
                 <a href="<%= project.project_url %>" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-accent-secondary text-xs font-medium transition-colors">[ view ]</a>
@@ -69,12 +69,12 @@
 
   <!-- About Section -->
   <div>
-    <h2 class="text-primary text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 sm:px-8 md:px-20 lg:px-40 pb-3 pt-5">cat about.me/README.md</h2>
+    <h2 class="text-primary text-lg sm:text-xl md:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 sm:px-8 md:px-20 lg:px-40 pb-3 pt-5">cat about.me/README.md</h2>
   </div>
 
   <div class="px-4 sm:px-8 md:px-20 lg:px-40 pb-10">
-    <div class="bg-black/20 p-6 rounded-lg border border-primary/20">
-      <p class="text-white/80 font-mono text-sm leading-relaxed">
+    <div class="bg-black/20 p-4 sm:p-6 rounded-lg border border-primary/20">
+      <p class="text-white/80 font-mono text-xs sm:text-sm leading-relaxed">
         Hello, I'm Tiago Antunes, a software engineer specializing in AI-driven web solutions and Ruby on Rails development. With a Master's degree in Software Engineering from the University of Coimbra, I focus on leveraging artificial intelligence to automate complex workflows, improve content evaluation accuracy, and enhance user experiences.
         <br/><br/>
         My expertise includes building AI-powered classification systems using LLMs, implementing Retrieval-Augmented Generation (RAG) approaches with vector embeddings, and developing conversational interfaces with AI function-calling. I'm passionate about exploring emerging AI technologies and continuously learning to push the boundaries of what's possible with intelligent automation.
