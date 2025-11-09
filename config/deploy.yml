@@ -102,7 +102,6 @@ accessories:
   db:
     image: postgres:15
     host: 37.27.255.169
-    port: "127.0.0.1:5432:5432"
     env:
       secret:
         - POSTGRES_PASSWORD
@@ -115,6 +114,5 @@ accessories:
   redis:
     image: redis:7.0
     host: 37.27.255.169
-    port: "127.0.0.1:6379:6379"
     directories:
       - data:/data
