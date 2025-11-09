@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #33ccff;
+  --color-accent-secondary: #ff00ff;
+  --color-background-light: #f6f7f8;
+  --color-background-dark: #1a1a1a;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
 @layer components {
   /* Buttons */
   .btn-primary {

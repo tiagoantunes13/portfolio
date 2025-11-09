@@ -2,13 +2,15 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   layout "landing"
 
-  before_action :redirect_to_inside
+  # No longer needed for portfolio
+  # before_action :redirect_to_inside
 
   def landing
+    @projects = Project.ordered
   end
 
-  def pricing
-  end
+  # def pricing
+  # end
 
   def about
   end
@@ -17,15 +19,15 @@ class PagesController < ApplicationController
     @contact_message = ContactMessage.new
   end
 
-  def privacy
-  end
+  # def privacy
+  # end
 
-  def terms_of_service
-  end
+  # def terms_of_service
+  # end
 
-  private
+  # private
 
-  def redirect_to_inside
-    redirect_to account_path if user_signed_in?
-  end
+  # def redirect_to_inside
+  #   redirect_to account_path if user_signed_in?
+  # end
 end

@@ -1,4 +1,4 @@
-<div class="flex max-w-[480px] flex-col items-center justify-center px-4 py-12 text-center">
+<div class="flex max-w-[480px] mx-auto flex-col items-center justify-center px-4 py-12 text-center">
   <!-- Success Icon -->
   <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-900/20 border border-green-500/30">
     <svg class="h-8 w-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -7,14 +7,14 @@
   </div>
 
   <!-- Success Message -->
-  <h3 class="text-white text-xl font-bold leading-tight mb-3">Message Sent Successfully!</h3>
+  <h3 class="text-white text-xl font-bold leading-tight mb-3">Thanks for reaching out!</h3>
   <p class="text-[#8fadcc] text-base leading-normal mb-6">
-    Thank you for reaching out. We've received your message and will get back to you soon.
+    I appreciate you getting in touch. I'll read your message and get back to you as soon as possible—usually within a day or two.
   </p>
 
   <!-- Send Another Button -->
-  <%= link_to contact_path, 
+  <%= link_to contact_path,
       class: "inline-flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-[#0b80f4] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#0969da] transition-colors" do %>
-    Send Another Message
+    Back to Contact
   <% end %>
 </div>

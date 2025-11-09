@@ -1,75 +1,18 @@
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#223649] px-4 md:px-10 py-3" style="background-color: #111827;">
-  <%= link_to root_path do %>
-    <div class="flex items-center gap-4 text-white">
-      <%= image_tag UiConfig::BRAND[:logo_path], class: "w-10 h-10 transform group-hover:scale-110 transition-transform duration-200", alt: UiConfig::BRAND[:logo_alt] %>
-      <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]"><%= UiConfig::BRAND[:name] %></h2>
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-4 sm:px-8 md:px-20 lg:px-40 py-6 md:py-5">
+  <%= link_to root_path, class: "flex items-center gap-4 text-primary hover:text-accent-secondary transition-colors" do %>
+    <div class="size-6">
+      <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 3H20C21.1046 3 22 3.89543 22 5V19C22 20.1046 21.1046 21 20 21H4C2.89543 21 2 20.1046 2 19V5C2 3.89543 2.89543 3 4 3ZM5 6V8H7V6H5ZM5 9V11H7V9H5ZM5 12V14H7V12H5ZM8 17H16V18H8V17Z"></path>
+      </svg>
     </div>
+    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] hidden sm:block">&gt; whois TiagoAntunes<span class="blinking-cursor">_</span></h2>
   <% end %>
 
-  <!-- Desktop Navigation -->
-  <div class="hidden md:flex flex-1 justify-end gap-8">
-    <div class="flex items-center gap-9">
+  <div class="flex flex-1 justify-end items-center gap-4 md:gap-8">
+    <div class="flex items-center gap-6">
       <% UiConfig::LANDING_NAV.each do |item| %>
-        <% unless item[:button_style] %>
-          <%= link_to item[:name], send(item[:path]), class: "text-white text-sm font-medium leading-normal" %>
-        <% end %>
+        <%= link_to "[ #{item[:name]} ]", send(item[:path]), class: "text-white hover:text-accent-secondary text-sm font-medium leading-normal transition-colors" %>
       <% end %>
     </div>
-    <% sign_in_item = UiConfig::LANDING_NAV.find { |item| item[:button_style] } %>
-    <% if sign_in_item %>
-      <%= link_to sign_in_item[:name], send(sign_in_item[:path]), class: "flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-indigo-600 text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-indigo-700" %>
-    <% end %>
   </div>
-
-  <!-- Mobile Menu Button -->
-  <button id="landing-menu-toggle" class="md:hidden text-white hover:text-[#90adcb] focus:outline-none">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
 </header>
-
-<!-- Mobile Menu -->
-<div id="landing-mobile-menu" class="hidden md:hidden border-b border-solid border-b-[#223649]" style="background-color: #111827;">
-  <div class="px-4 py-3 space-y-3">
-    <% UiConfig::LANDING_NAV.each do |item| %>
-      <% if item[:button_style] %>
-        <%= link_to item[:name], send(item[:path]), class: "block text-center cursor-pointer rounded-lg py-2.5 px-5 bg-indigo-600 text-white text-sm font-semibold leading-normal mt-3 hover:bg-indigo-700 transition-colors" %>
-      <% else %>
-        <%= link_to item[:name], send(item[:path]), class: "block text-white text-sm font-medium leading-normal py-2 hover:text-indigo-600 transition-colors" %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-<script>
-  function setupLandingNavInteractions() {
-    // Mobile menu toggle
-    const toggleBtn = document.getElementById('landing-menu-toggle');
-    const mobileMenu = document.getElementById('landing-mobile-menu');
-
-    if (toggleBtn && mobileMenu) {
-      // Remove existing listener if any
-      toggleBtn.replaceWith(toggleBtn.cloneNode(true));
-      const newToggleBtn = document.getElementById('landing-menu-toggle');
-
-      newToggleBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-  }
-
-  // Run on initial load
-  document.addEventListener('turbo:load', setupLandingNavInteractions);
-
-  // Run after Turbo renders a page from cache or new content
-  document.addEventListener('turbo:render', setupLandingNavInteractions);
-
-  // Clean up mobile menu state before caching
-  document.addEventListener('turbo:before-cache', () => {
-    const mobileMenu = document.getElementById('landing-mobile-menu');
-    if (mobileMenu) {
-      mobileMenu.classList.add('hidden');
-    }
-  });
-</script>

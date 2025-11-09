@@ -1,12 +1,14 @@
-<footer class="flex justify-center">
-  <div class="flex max-w-[960px] flex-1 flex-col">
-    <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
-      <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
-        <%= link_to 'Privacy Policy', privacy_path, class: "text-[#90adcb] hover:text-white text-base font-normal leading-normal min-w-40 transition-colors" %>
-        <%= link_to 'Terms of Service', terms_path, class: "text-[#90adcb] hover:text-white text-base font-normal leading-normal min-w-40 transition-colors" %>
-        <%= link_to 'Contact Us', contact_path, class: "text-[#90adcb] hover:text-white text-base font-normal leading-normal min-w-40 transition-colors" %>
-      </div>
-      <p class="text-[#90adcb] text-base font-normal leading-normal">© <%= Date.today.year %> ApplyTrack. All rights reserved.</p>
-    </footer>
+<footer class="px-4 sm:px-8 md:px-20 lg:px-40 py-8">
+  <div class="border-t border-primary/20 pt-6">
+    <div class="flex items-center gap-2 font-mono text-sm text-primary">
+      <span>user@portfolio:~$</span>
+      <span class="text-white">get-in-touch</span>
+      <span class="blinking-cursor bg-primary w-2 h-4"></span>
+    </div>
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mt-4">
+      <% UiConfig::SOCIAL_LINKS.each do |social| %>
+        <a class="text-white hover:text-accent-secondary transition-colors" href="<%= social[:url] %>" target="_blank" rel="noopener noreferrer">[ <%= social[:name].downcase %> ]</a>
+      <% end %>
+    </div>
   </div>
 </footer>

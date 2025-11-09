@@ -88,30 +88,28 @@ module UiConfig
 
   # Landing page navigation (public)
   LANDING_NAV = [
-    { name: "Features", path: :root_path },
-    { name: "Pricing", path: :pricing_path },
-    # { name: "About", path: :about_path },
-    { name: "Contact", path: :contact_path },
-    { name: "Sign In", path: :new_user_session_path, button_style: true }
+    { name: "about.me", path: :about_path },
+    { name: "contact.sh", path: :contact_path }
   ].freeze
 
   # Footer links
   FOOTER_LINKS = [
-    { name: "Privacy Policy", path: :privacy_path },
-    { name: "Terms of Service", path: :terms_path },
-    { name: "Contact Us", path: :contact_path }
+    # { name: "Privacy Policy", path: :privacy_path },
+    # { name: "Terms of Service", path: :terms_path },
+    # { name: "Contact Us", path: :contact_path }
   ].freeze
 
   # Brand configuration
   BRAND = {
-    name: "ApplyTrack",
+    name: "Your Name",  # Update this with your actual name
     logo_path: "/logo.svg",
-    logo_alt: "ApplyTrack Logo"
+    logo_alt: "Portfolio Logo"
   }.freeze
 
   # Social links
-  # SOCIAL_LINKS = [
-  #   { name: "Twitter", url: "https://twitter.com/yoursaas", icon: "twitter" },
-  #   { name: "GitHub", url: "https://github.com/yoursaas", icon: "github" }
-  # ].freeze
+  SOCIAL_LINKS = [
+    { name: "GitHub", url: "https://github.com/tiagoantunes13", icon: "code" },
+    { name: "Email", url: "mailto:tiagoantunes9991@gmail.com", icon: "alternate_email" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/tiagoaantunes/", icon: "campaign" }
+  ].freeze
 end
