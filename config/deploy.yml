@@ -1,13 +1,13 @@
 # Name of your application. Used to uniquely configure containers.
-service: app_skeleton
+service: portfolio
 
 # Name of the container image.
-image: your-user/app_skeleton
+image: dockeruser123123333333333/portfolio
 
 # Deploy to these servers.
 servers:
   web:
-    - 192.168.0.1
+    - 37.27.255.169
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -19,13 +19,14 @@ servers:
 # Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 proxy:
   ssl: true
-  host: app.example.com
+  host: tiagoantunes.dev
+  response_timeout: 120
 
 # Credentials for your image host.
 registry:
   # Specify the registry server, if you're not using Docker Hub
   # server: registry.digitalocean.com / ghcr.io / ...
-  username: your-user
+  username: dockeruser123123333333333
 
   # Always use an access token rather than real password when possible.
   password:
@@ -35,6 +36,7 @@ registry:
 env:
   secret:
     - RAILS_MASTER_KEY
+    - portfolio_DATABASE_PASSWORD
   clear:
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.
@@ -47,8 +49,12 @@ env:
     # WEB_CONCURRENCY: 2
 
     # Match this to any external database server to configure Active Record correctly
-    # Use app_skeleton-db for a db accessory server on same machine via local kamal docker network.
-    # DB_HOST: 192.168.0.2
+    # Use portfolio-db for a db accessory server on same machine via local kamal docker network.
+    DB_HOST: portfolio-db
+    DB_PORT: 5432
+
+    # Redis URL for ActionCable
+    REDIS_URL: redis://portfolio-redis:6379/1
 
     # Log everything from Rails
     # RAILS_LOG_LEVEL: debug
@@ -65,7 +71,7 @@ aliases:
 # Use a persistent storage volume for sqlite database files and local Active Storage files.
 # Recommended to change this to a mounted volume path that is backed up off server.
 volumes:
-  - "app_skeleton_storage:/rails/storage"
+  - "portfolio_storage:/rails/storage"
 
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
@@ -92,25 +98,23 @@ builder:
 #   user: app
 
 # Use accessory services (secrets come from .kamal/secrets).
-# accessories:
-#   db:
-#     image: mysql:8.0
-#     host: 192.168.0.2
-#     # Change to 3306 to expose port to the world instead of just local network.
-#     port: "127.0.0.1:3306:3306"
-#     env:
-#       clear:
-#         MYSQL_ROOT_HOST: '%'
-#       secret:
-#         - MYSQL_ROOT_PASSWORD
-#     files:
-#       - config/mysql/production.cnf:/etc/mysql/my.cnf
-#       - db/production.sql:/docker-entrypoint-initdb.d/setup.sql
-#     directories:
-#       - data:/var/lib/mysql
-#   redis:
-#     image: redis:7.0
-#     host: 192.168.0.2
-#     port: 6379
-#     directories:
-#       - data:/data
+accessories:
+  db:
+    image: postgres:15
+    host: 37.27.255.169
+    port: "127.0.0.1:5432:5432"
+    env:
+      secret:
+        - POSTGRES_PASSWORD
+      clear:
+        POSTGRES_DB: portfolio_production
+        POSTGRES_USER: portfolio
+        POSTGRES_MULTIPLE_DATABASES: portfolio_production,portfolio_production_cache,portfolio_production_queue,portfolio_production_cable
+    directories:
+      - data:/var/lib/postgresql/data
+  redis:
+    image: redis:7.0
+    host: 37.27.255.169
+    port: "127.0.0.1:6379:6379"
+    directories:
+      - data:/data

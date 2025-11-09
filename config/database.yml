@@ -81,18 +81,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: app_skeleton_production
-    username: app_skeleton
-    password: <%= ENV["APP_SKELETON_DATABASE_PASSWORD"] %>
+    database: portfolio_production
+    username: portfolio
+    password: <%= ENV["portfolio_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
-    database: app_skeleton_production_cache
+    database: portfolio_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: app_skeleton_production_queue
+    database: portfolio_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: app_skeleton_production_cable
+    database: portfolio_production_cable
     migrations_paths: db/cable_migrate
