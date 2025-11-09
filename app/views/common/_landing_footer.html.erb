@@ -6,6 +6,7 @@
       <span class="blinking-cursor bg-primary w-2 h-4"></span>
     </div>
     <div class="flex flex-wrap gap-x-6 gap-y-2 mt-4">
+      <%= link_to "[ cv ]", "/cv.pdf", target: "_blank", class: "text-white hover:text-accent-secondary transition-colors" %>
       <% UiConfig::SOCIAL_LINKS.each do |social| %>
         <a class="text-white hover:text-accent-secondary transition-colors" href="<%= social[:url] %>" target="_blank" rel="noopener noreferrer">[ <%= social[:name].downcase %> ]</a>
       <% end %>
