@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   # get "privacy", to: "pages#privacy", as: "privacy"  # Optional - uncomment if needed
   # get "terms", to: "pages#terms_of_service", as: "terms"  # Optional - uncomment if needed
 
+  # Projects
+  resources :projects, only: [ :index, :show ]
+
   # Contact
   resources :contact_messages, only: [ :create ]
 

@@ -1,0 +1,60 @@
+<% content_for :meta_title, "All Projects | Tiago Antunes" %>
+<% content_for :meta_description, "Browse all projects by Tiago Antunes, featuring AI-powered applications, web solutions built with Ruby on Rails, and modern software engineering experiments." %>
+
+<main class="flex-grow">
+  <!-- Header Section -->
+  <div class="@container px-4 sm:px-8 md:px-20 lg:px-40 py-10 md:py-20">
+    <div class="flex flex-col gap-4 max-w-4xl">
+      <div class="flex flex-col gap-2">
+        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
+          ls -la ~/projects/
+        </h1>
+        <h2 class="text-primary text-sm font-normal leading-normal @[480px]:text-base font-mono">
+          total <%= @projects.count %> projects // Showing all work and experiments
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects Grid -->
+  <% if @projects.any? %>
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 px-4 sm:px-8 md:px-20 lg:px-40 pb-20">
+      <% @projects.each do |project| %>
+        <%= link_to project_path(project), class: "flex flex-col gap-3 pb-3 group" do %>
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-contain rounded-lg overflow-hidden transition-all duration-300">
+            <% if project.primary_image.present? %>
+              <div class="w-full h-full bg-contain bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-105" style='background-image: url("<%= url_for(project.primary_image) %>");' data-alt="<%= project.title %> screenshot"></div>
+            <% else %>
+              <div class="w-full h-full bg-gray-800 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <span class="text-gray-600 text-sm">No image</span>
+              </div>
+            <% end %>
+          </div>
+          <div>
+            <p class="text-white text-base font-medium leading-normal">
+              <%= project.title.downcase.gsub(' ', '_') %>.rb
+              <% if project.featured %>
+                <span class="text-accent-secondary text-xs ml-1">★</span>
+              <% end %>
+            </p>
+            <% if project.technologies.present? %>
+              <p class="text-primary/70 text-xs sm:text-sm font-normal leading-normal">Dependencies: <%= project.technologies %></p>
+            <% end %>
+            <p class="text-white/60 text-sm font-normal leading-relaxed line-clamp-3"><%= project.description %></p>
+            <div class="flex items-center gap-3 mt-2">
+              <span class="text-primary hover:text-accent-secondary text-xs font-medium transition-colors">[ view details ]</span>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="px-4 sm:px-8 md:px-20 lg:px-40 pb-20">
+      <div class="bg-black/20 p-6 rounded-lg border border-primary/20">
+        <p class="text-white/60 font-mono text-sm">
+          No projects found. Add projects via Rails console.
+        </p>
+      </div>
+    </div>
+  <% end %>
+</main>

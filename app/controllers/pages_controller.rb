@@ -1,12 +1,11 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!
   layout "landing"
 
   # No longer needed for portfolio
   # before_action :redirect_to_inside
 
   def landing
-    @projects = Project.ordered
+    @projects = Project.featured.ordered
   end
 
   # def pricing

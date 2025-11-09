@@ -21,18 +21,18 @@
     </div>
   </div>
 
-  <!-- Projects Section -->
+  <!-- Featured Projects Section -->
   <div>
-    <h2 class="text-primary text-lg sm:text-xl md:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 sm:px-8 md:px-20 lg:px-40 pb-3 pt-5">ls -l projects/</h2>
+    <h2 class="text-primary text-lg sm:text-xl md:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 sm:px-8 md:px-20 lg:px-40 pb-3 pt-5">ls -l featured/</h2>
   </div>
 
   <% if @projects.any? %>
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 px-4 sm:px-8 md:px-20 lg:px-40 pb-10">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 px-4 sm:px-8 md:px-20 lg:px-40 pb-6">
       <% @projects.each do |project| %>
-        <div class="flex flex-col gap-3 pb-3 group">
+        <%= link_to project_path(project), class: "flex flex-col gap-3 pb-3 group" do %>
           <div class="w-full bg-center bg-no-repeat aspect-video bg-contain rounded-lg overflow-hidden transition-all duration-300">
-            <% if project.image.attached? %>
-              <div class="w-full h-full bg-contain bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-105" style='background-image: url("<%= url_for(project.image) %>");' data-alt="<%= project.title %> screenshot"></div>
+            <% if project.primary_image.present? %>
+              <div class="w-full h-full bg-contain bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-105" style='background-image: url("<%= url_for(project.primary_image) %>");' data-alt="<%= project.title %> screenshot"></div>
             <% else %>
               <div class="w-full h-full bg-gray-800 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                 <span class="text-gray-600 text-sm">No image</span>
@@ -40,28 +40,34 @@
             <% end %>
           </div>
           <div>
-            <p class="text-white text-base font-medium leading-normal"><%= project.title.downcase.gsub(' ', '_') %>.rb</p>
+            <p class="text-white text-base font-medium leading-normal">
+              <%= project.title.downcase.gsub(' ', '_') %>.rb
+              <span class="text-accent-secondary text-xs ml-1">★</span>
+            </p>
             <% if project.technologies.present? %>
               <p class="text-primary/70 text-xs sm:text-sm font-normal leading-normal">Dependencies: <%= project.technologies %></p>
             <% end %>
-            <p class="text-white/60 text-sm font-normal leading-relaxed"><%= project.description %></p>
+            <p class="text-white/60 text-sm font-normal leading-relaxed line-clamp-2"><%= project.description %></p>
             <div class="flex items-center gap-3 mt-2">
-              <% if project.project_url.present? %>
-                <a href="<%= project.project_url %>" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-accent-secondary text-xs font-medium transition-colors">[ view ]</a>
-              <% end %>
-              <% if project.github_url.present? %>
-                <a href="<%= project.github_url %>" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-accent-secondary text-xs font-medium transition-colors">[ source ]</a>
-              <% end %>
+              <span class="text-primary group-hover:text-accent-secondary text-xs font-medium transition-colors">[ view details ]</span>
             </div>
           </div>
-        </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <!-- View All Projects Button -->
+    <div class="px-4 sm:px-8 md:px-20 lg:px-40 pb-10">
+      <%= link_to projects_path, class: "inline-flex items-center justify-center gap-2 text-primary hover:text-accent-secondary text-sm font-medium transition-colors" do %>
+        <span>View All Projects</span>
+        <span>→</span>
       <% end %>
     </div>
   <% else %>
     <div class="px-4 sm:px-8 md:px-20 lg:px-40 pb-10">
       <div class="bg-black/20 p-6 rounded-lg border border-primary/20">
         <p class="text-white/60 font-mono text-sm">
-          No projects found. Add projects via Rails console.
+          No featured projects. Mark projects as featured via Rails console.
         </p>
       </div>
     </div>

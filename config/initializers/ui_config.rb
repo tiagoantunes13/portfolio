@@ -88,6 +88,7 @@ module UiConfig
 
   # Landing page navigation (public)
   LANDING_NAV = [
+    { name: "projects.rb", path: :projects_path },
     { name: "about.me", path: :about_path },
     { name: "contact.sh", path: :contact_path }
   ].freeze
