@@ -79,5 +79,5 @@ gem "pay", "~> 11.1"
 gem "stripe", "~> 15.3"
 
 # Ruby LLM and AI
-gem "ruby_llm", "~> 1.8"
+gem "ruby_llm", "~> 1.9"
 gem "ruby_llm-schema", "~> 0.2.1"
